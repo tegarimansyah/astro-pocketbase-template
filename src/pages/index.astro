@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/LandingPage.astro";
+import { Button } from "@/components/ui/button";
+
+const metadata = {
+	title: "This is title",
+	descriptionMetaTag: "This is meta description",
+	pageTitle: "This is Page Title",
+};
+---
+
+<Layout {...metadata}>
+	<Button>Hello World</Button>
+</Layout>

@@ -1,0 +1,24 @@
+---
+import "@/styles/global.css";
+
+import type { PageMetadata } from "@/types/pages";
+
+interface Props extends PageMetadata {}
+
+const pageMetadata = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageMetadata.title}</title>
+        <meta name="description" content={pageMetadata.descriptionMetaTag} />
+    </head>
+    <body>
+        <h1 class="text-blue-500 text-2xl">{pageMetadata.pageTitle}</h1>
+        <slot />
+    </body>
+</html>
