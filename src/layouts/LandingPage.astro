@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import Navbar from "@/components/layout/Navbar.astro";
 
 import type { PageMetadata } from "@/types/pages";
 
@@ -18,7 +19,9 @@ const pageMetadata = Astro.props;
         <meta name="description" content={pageMetadata.descriptionMetaTag} />
     </head>
     <body>
-        <h1 class="text-blue-500 text-2xl">{pageMetadata.pageTitle}</h1>
-        <slot />
+        <Navbar />
+        <div class="xl:mx-auto mt-10 xl:mt-20 max-w-7xl">
+            <slot />
+        </div>
     </body>
 </html>
