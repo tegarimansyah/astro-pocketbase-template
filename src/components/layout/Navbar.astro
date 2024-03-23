@@ -8,29 +8,29 @@ const currentPath = pathname.slice(1);
 const title = "konsisten.id";
 const navigation = [
     {
-        title: "Dashboard",
+        title: "Home",
         href: "/",
         isActive: currentPath === "",
     },
     {
-        title: "Orders",
-        href: "/orders",
-        isActive: currentPath === "orders",
+        title: "Journaling",
+        href: "/journaling",
+        isActive: currentPath === "journaling",
     },
     {
-        title: "Products",
-        href: "/products",
-        isActive: currentPath === "products",
+        title: "Task Management",
+        href: "/task-management",
+        isActive: currentPath === "task-management",
     },
     {
-        title: "Customers",
-        href: "/customers",
-        isActive: currentPath === "customers",
+        title: "Financial Goals",
+        href: "/financial-goals",
+        isActive: currentPath === "financial-goals",
     },
     {
-        title: "Analytics",
-        href: "/analytics",
-        isActive: currentPath === "analytics",
+        title: "Reflection",
+        href: "/reflection",
+        isActive: currentPath === "reflection",
     },
 ];
 ---
@@ -63,7 +63,9 @@ const navigation = [
         }
     </nav>
     <MobileSidebar title={title} navigation={navigation} client:load />
-    <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+    <div
+        class="flex w-full lg:w-20 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4"
+    >
         <UserMenu client:load />
     </div>
 </header>
