@@ -1,0 +1,34 @@
+---
+import "@/styles/global.css";
+import ForceLogin from "@/components/interactive/ForceLogin";
+import Navbar from "@/components/layout/LandingNavbar.astro";
+
+import type { PageMetadata } from "@/types/pages";
+
+interface Props extends PageMetadata {
+    isPagePublic?: boolean;
+}
+
+const pageMetadata = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageMetadata.title}</title>
+        <meta name="description" content={pageMetadata.descriptionMetaTag} />
+    </head>
+    <body>
+        <ForceLogin
+            isPagePublic={pageMetadata.isPagePublic || false}
+            client:load
+        />
+        <Navbar />
+        <div class="xl:mx-auto mt-10 xl:mt-20 max-w-7xl">
+            <slot />
+        </div>
+    </body>
+</html>

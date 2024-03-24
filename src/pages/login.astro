@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/LandingPage.astro";
+import { LoginForm } from "@/components/layout/LoginForm";
+
+const metadata = {
+    title: "Login | Konsisten.id",
+    descriptionMetaTag: "This is meta description",
+    pageTitle: "This is Page Title",
+};
+---
+
+<Layout {...metadata}>
+    <LoginForm client:load />
+</Layout>

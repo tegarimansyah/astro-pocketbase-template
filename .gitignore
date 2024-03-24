@@ -19,3 +19,8 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# SQLite from pocketbase
+*.db
+*.db-wal
+*.db-shm

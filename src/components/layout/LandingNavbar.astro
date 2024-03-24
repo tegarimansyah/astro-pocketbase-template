@@ -1,0 +1,67 @@
+---
+import MobileSidebar from "@/components/interactive/NavbarMobileSidebar";
+import UserMenu from "@/components/interactive/NavbarUserMenu";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
+const title = "konsisten.id";
+const navigation = [
+    {
+        title: "Home",
+        href: "/",
+        isActive: currentPath === "",
+    },
+    {
+        title: "Journaling",
+        href: "/journaling",
+        isActive: currentPath === "journaling",
+    },
+    {
+        title: "Task Management",
+        href: "/task-management",
+        isActive: currentPath === "task-management",
+    },
+    {
+        title: "Financial Goals",
+        href: "/financial-goals",
+        isActive: currentPath === "financial-goals",
+    },
+    {
+        title: "Reflection",
+        href: "/reflection",
+        isActive: currentPath === "reflection",
+    },
+];
+---
+
+<header
+    class="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6"
+>
+    <nav
+        class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6"
+    >
+        <a
+            href="/"
+            class="flex items-center gap-2 text-lg font-semibold md:text-base"
+        >
+            <h1 class="text-2xl font-light">&gt;{title}</h1>
+        </a>
+        {
+            navigation.map((nav) => (
+                <a
+                    href={nav.href}
+                    class={`transition-colors hover:text-foreground ${
+                        nav.isActive
+                            ? "text-foreground"
+                            : "text-muted-foreground"
+                    }`}
+                >
+                    {nav.title}
+                </a>
+            ))
+        }
+    </nav>
+    <MobileSidebar title={title} navigation={navigation} client:load />
+    <UserMenu client:only />
+</header>

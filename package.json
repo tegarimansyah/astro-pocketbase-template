@@ -1,10 +1,16 @@
 {
-  "name": "",
+  "name": "astro-pocketbase-template",
+  "author": {
+    "name": "Tegar Imansyah",
+    "email": "tegar@bongkar.cloud"
+  },
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
+    "backend": "./backend/pocketbase serve",
+    "typegen": "npx pocketbase-typegen --db ./backend/pb_data/data.db --out src/services/backend/pbTypes.ts",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -13,9 +19,11 @@
     "@astrojs/check": "^0.5.10",
     "@astrojs/react": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
@@ -23,12 +31,15 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.363.0",
+    "pocketbase": "^0.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.1",
     "react-icons": "^5.0.1",
     "tailwind-merge": "^2.2.2",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.3",
+    "zod": "^3.22.4"
   }
 }
