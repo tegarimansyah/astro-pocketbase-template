@@ -9,21 +9,22 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { isLoggedIn, doLogout } from "@/services/backend/userService"
+import { useStore } from '@nanostores/react';
+import { isLoggedInStore } from '@/stores/account';
+
+import { doLogout } from "@/services/backend/utils"
 
 export default function NavbarMobileSidebar() {
 
-    if (!isLoggedIn()) {
-        return (
-            <div
-                className="flex w-full lg:w-40 justify-end items-center gap-4 md:ml-auto md:gap-2 lg:gap-4"
-            >
-                <Button><a href="/login">Log In</a></Button>
-            </div>
-        )
-    }
+    const $isLoggedIn = useStore(isLoggedInStore)
 
-    return (
+    return !$isLoggedIn ? (
+        <div
+            className="flex w-full lg:w-40 justify-end items-center gap-4 md:ml-auto md:gap-2 lg:gap-4"
+        >
+            <a href="/login"><Button>Log In</Button></a>
+        </div>
+    ) : (
         <div
             className="flex w-full lg:w-20 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4"
         >

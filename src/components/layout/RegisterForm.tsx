@@ -21,8 +21,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { useEffect } from "react"
 
-
-import { isLoggedIn, userRegister, registerFormSchema, type RegisterFormType } from "@/services/backend/userService"
+import { isLoggedIn } from "@/services/backend/utils"
+import { userRegister, registerFormSchema, type RegisterFormType } from "@/services/backend/userService"
 
 export function RegisterForm() {
 
@@ -38,7 +38,6 @@ export function RegisterForm() {
       fullname: "",
       email: "",
       password: "",
-      confirm: "",
     },
   })
 
@@ -91,19 +90,6 @@ export function RegisterForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input placeholder="********" type="password" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="confirm"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
                     <FormControl>
                       <Input placeholder="********" type="password" {...field} />
                     </FormControl>

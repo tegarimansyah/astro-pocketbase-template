@@ -1,4 +1,15 @@
-# Astro Starter Kit: With Typescript, React, Tailwind, Shadcn UI and Pocketbase 
+# Cheap Stack: Astro With Typescript, React, Tailwind, Shadcn UI and Pocketbase 
+
+> [!CAUTION]  
+> This boilerplate is still work in progress and expect any breaking changes will occured.
+
+This is a mono repo that consist of frontend and backend with stack:
+
+- Astro (Typescript)
+- React
+- Tailwind CSS + Shadcn UI
+- Pocketbase
+- Docker
 
 Use this repo as a template. You can also setup [`action-template-sync`](https://github.com/marketplace/actions/actions-template-sync) to update template with already created repo (since it's different with repo forking).
 

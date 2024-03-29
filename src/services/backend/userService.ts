@@ -1,19 +1,6 @@
 import { pb } from "./pocketbase"
 import { z } from "zod"
-
-export function getUserDetail() {
-    return pb.authStore.model
-}
-
-export function isLoggedIn() {
-    console.log(`Checked in: ${pb.authStore.isValid}`)
-    return pb.authStore.isValid
-}
-
-export function doLogout() {
-    pb.authStore.clear()
-    window.location.href = "/login"
-}
+import { isLoggedInStore } from '@/stores/account';
 
 export async function userLogin(email: string, password: string) {
     try {
@@ -22,6 +9,7 @@ export async function userLogin(email: string, password: string) {
             password,
         );
         pb.authStore.save(authData.token)
+        isLoggedInStore.set(true)
         window.location.href = "/app"
     } catch (error) {
         alert(error)
@@ -53,13 +41,6 @@ export const registerFormSchema = z.object(
         fullname: z.string(),
         email: z.string().email().min(5),
         password: z.string().min(6).max(50),
-        confirm: z.string().min(6).max(50),
     }
-).refine(
-    (data) => data.password === data.confirm,
-    {
-        message: "Passwords don't match",
-        path: ["confirm"], // path of error
-    }
-);
+)
 export type RegisterFormType = z.infer<typeof registerFormSchema>
