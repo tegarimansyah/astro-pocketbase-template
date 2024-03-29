@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "backend": "./backend/pocketbase serve",
+    "fullstack": "run-p dev backend",
     "typegen": "npx pocketbase-typegen --db ./backend/pb_data/data.db --out src/services/backend/pbTypes.ts",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -43,5 +44,8 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.4.3",
     "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }

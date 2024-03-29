@@ -63,6 +63,13 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## Pocketbase Backend
 
-Feel free to check [astro documentation](https://docs.astro.build) or jump into astro [Discord server](https://astro.build/chat).
+Go to `backend` folder and copy `.env.example` to `.env`. 
+
+Using docker locally
+
+```bash
+docker build -t cheapstack/backend .
+docker run --env-file .env --rm -p 8080:8080 cheapstack/backend
+```

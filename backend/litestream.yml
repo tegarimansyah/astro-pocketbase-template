@@ -1,0 +1,20 @@
+access-key-id: $AWS_ACCESS_KEY_ID
+secret-access-key: $AWS_SECRET_ACCESS_KEY
+
+dbs:
+  - path: ./pb_data/data.db # local path to the SQLite database
+    replicas:
+      - type: s3
+        # region: ${S3_REGION} # Only for blackblaze and S3. Compare it in https://bongkar.cloud/object-storage-comparison/
+        bucket: ${S3_BUCKET}
+        path: pb_data # folder name inside the bucket
+        endpoint: ${S3_ENDPOINT} # S3-compatible endpoint
+        force-path-style: true
+  - path: ./pb_data/logs.db # local path to the SQLite database
+    replicas:
+      - type: s3
+        # region: ${S3_REGION} # Only for blackblaze and S3. Compare it in https://bongkar.cloud/object-storage-comparison/
+        bucket: ${S3_BUCKET}
+        path: pb_data # folder name inside the bucket
+        endpoint: ${S3_ENDPOINT} # S3-compatible endpoint
+        force-path-style: true
